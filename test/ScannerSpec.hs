@@ -28,7 +28,9 @@ spec = do
     it "should scan \"12345\"" $
         scan "12345" `shouldBe` Just [NatNum 12345]
 
-    -- to be replaced and continued
-
-    it "please remove me and add a lot of meaningful test cases" $
-        True `shouldBe` False
+    it "should scan \"123123*(3123/(123-(123+123)))\"" $
+        scan "123123*(3123/(123-(123+123)))" `shouldBe`
+          Just [ NatNum 123123, Mult, OpeningParenthesis, NatNum 3123, Div
+               , OpeningParenthesis, NatNum 123, Minus, OpeningParenthesis
+               , NatNum 123, Add, NatNum 123, ClosingParenthesis
+               , ClosingParenthesis, ClosingParenthesis]
