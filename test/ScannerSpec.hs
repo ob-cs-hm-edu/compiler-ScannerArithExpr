@@ -23,7 +23,7 @@ spec = do
         scan "-" `shouldBe` Just [Minus]
 
     it "should scan \"-+--\"" $
-        scan "-" `shouldBe` Just [Minus, Add, Minus, Minus]
+        scan "-+--" `shouldBe` Just [Minus, Add, Minus, Minus]
 
     it "should scan \"12345\"" $
         scan "12345" `shouldBe` Just [NatNum 12345]
